@@ -126,12 +126,8 @@ class Game extends React.Component {
             <div className="game">
                 <div className="game-board">
                     <Board
-                        onClick={i => {
-                            this.handleClick(i);
-                            console.log(i);
-                            console.log("i");
-                        }}
                         gameStatus={currentGame.gameStatus}
+                        onClick={i => this.handleClick(i)}
                     />
                 </div>
                 <div className="game-info">
