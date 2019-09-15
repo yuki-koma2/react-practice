@@ -1,0 +1,16 @@
+{
+  "processors": ["stylelint-processor-styled-components"],
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-styled-components"
+  ],
+  "plugins": [
+    "stylelint-no-unsupported-browser-features"
+  ],
+  "rules": {
+    "plugin/no-unsupported-browser-features": [true, {
+      "severity": "warning",
+      "browsers": ["IE 11", "Last 3 Chrome versions", "Last 3 Firefox versions", "Last 2 Safari versions", "Last 2 Edge versions"]
+    }]
+  }
+}
