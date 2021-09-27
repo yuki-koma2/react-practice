@@ -10,6 +10,7 @@ jobs:
     if: ${{github.event.pull_request.labels.*.name[0]}}
     steps:
       - run: echo Check labels is not empty
+      - run: echo ${{github.event.pull_request.labels.*.name[0]}}
   build:
     needs: [checkLabels]
     strategy:
