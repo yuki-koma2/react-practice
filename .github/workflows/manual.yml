@@ -12,6 +12,7 @@ jobs:
       - run: echo Check labels is not empty
       - run: echo ${{github.event.pull_request.labels}}
       - run: echo ${{github.event.pull_request.labels.*.name[0]}}
+      - run: echo ${github.event.pull_request.draft}
   build:
     needs: [checkLabels]
     strategy:
