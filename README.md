@@ -2,4 +2,4 @@
 This repo is for practice react.
 
 
-テスト
+ラベル付与 テスト
