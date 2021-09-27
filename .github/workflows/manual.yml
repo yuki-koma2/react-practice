@@ -3,6 +3,16 @@ name: Example workflow
 on:
   pull_request:
     types: [opened, labeled, unlabeled, synchronize]
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'Mona the Octocat'
+      home:
+        description: 'location'
+        required: false
+        default: 'The Octoverse'
 
 jobs:
   checkLabels:
@@ -13,6 +23,11 @@ jobs:
       - run: echo ${{github.event.pull_request.labels}}
       - run: echo ${{github.event.pull_request.labels.*.name[0]}}
       - run: echo ${github.event.pull_request.draft}
+  checkLabel_ci:
+    runs-on: ubuntu-latest
+    if: github.event.label.name == 'stop_ci'
+    steps:
+      - run: echo Check labels is stop_ci
   build:
     needs: [checkLabels]
     strategy:
