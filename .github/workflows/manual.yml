@@ -19,10 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{github.event.pull_request.labels.*.name[0]}}
     steps:
-      - run: echo Check labels is not empty
+      - run: echo Check labels is not empty.
   checkLabel_ci:
     runs-on: ubuntu-latest
-    if: github.event.label.name == 'stop_ci'
+    if: contains( toJson(github), 'stop_ci' )
+#     github.event.label.name == 'stop_ci'
     steps:
       - run: echo Check labels is stop_ci
   build:
