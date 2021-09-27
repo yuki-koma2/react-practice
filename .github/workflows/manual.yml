@@ -20,9 +20,6 @@ jobs:
     if: ${{github.event.pull_request.labels.*.name[0]}}
     steps:
       - run: echo Check labels is not empty
-      - run: echo ${{github.event.pull_request.labels}}
-      - run: echo ${{github.event.pull_request.labels.*.name[0]}}
-      - run: echo ${github.event.pull_request.draft}
   checkLabel_ci:
     runs-on: ubuntu-latest
     if: github.event.label.name == 'stop_ci'
